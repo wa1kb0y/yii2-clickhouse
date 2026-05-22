@@ -46,6 +46,7 @@ class Schema extends \yii\db\mysql\Schema
         'Decimal32' => self::TYPE_DECIMAL,
         'Decimal64' => self::TYPE_DECIMAL,
         'Decimal128' => self::TYPE_DECIMAL,
+        'JSON' => self::TYPE_JSON,
     ];
 
     /**

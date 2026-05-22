@@ -7,6 +7,7 @@
 
 namespace bashkarev\clickhouse;
 
+use yii\db\JsonExpression;
 use yii\db\ArrayExpression;
 use yii\db\Exception;
 
@@ -47,6 +48,7 @@ class QueryBuilder extends \yii\db\QueryBuilder
     {
         return array_merge(parent::defaultExpressionBuilders(), [
             ArrayExpression::class => ArrayExpressionBuilder::class,
+            JsonExpression::class => JsonExpressionBuilder::class,
         ]);
     }
 

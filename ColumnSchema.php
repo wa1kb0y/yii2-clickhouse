@@ -3,6 +3,7 @@
 namespace bashkarev\clickhouse;
 
 use yii\db\ArrayExpression;
+use yii\db\JsonExpression;
 use yii\db\Expression;
 
 /**
@@ -23,6 +24,10 @@ class ColumnSchema extends \yii\db\ColumnSchema
 
         if (strpos($this->dbType, 'Array(') === 0) {
             return new ArrayExpression($value, $this->type);
+        }
+
+        if (strtolower($this->dbType) === Schema::TYPE_JSON) {
+            return new JsonExpression($value, $this->type);
         }
 
         return parent::dbTypecast($value);
