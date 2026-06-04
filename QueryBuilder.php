@@ -52,6 +52,16 @@ class QueryBuilder extends \yii\db\QueryBuilder
         ]);
     }
 
+    protected function defaultConditionClasses()
+    {
+        return array_merge(parent::defaultConditionClasses(), [
+            'ILIKE' => 'yii\db\conditions\LikeCondition',
+            'NOT ILIKE' => 'yii\db\conditions\LikeCondition',
+            'OR ILIKE' => 'yii\db\conditions\LikeCondition',
+            'OR NOT ILIKE' => 'yii\db\conditions\LikeCondition',
+        ]);
+    }
+
     /**
      * @inheritdoc
      */
